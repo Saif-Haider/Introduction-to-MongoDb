@@ -1,0 +1,10 @@
+mongoimport --type csv --headerline --db mfix --collection movies_initial --host "<CLUSTER>/<SEED_LIST>" --authenticationDatabase admin --ssl --username analytics --password analytics-password --file movies_initial.csv
+
+
+
+mongoimport --type csv --headerline --db mfix --collection movies_initial --host "mflix-shard-0/mflix-shard-00-00-qsnqp.gcp.mongodb.net:27017,mflix-shard-00-01-qsnqp.gcp.mongodb.net:27017,mflix-shard-00-02-qsnqp.gcp.mongodb.net:27017" --authenticationDatabase admin --ssl --username analytics --password analytics-password --file movies_initial.csv
+
+
+
+
+mongo "mongodb://mflix-shard-00-00-qsnqp.gcp.mongodb.net:27017,mflix-shard-00-01-qsnqp.gcp.mongodb.net:27017,mflix-shard-00-02-qsnqp.gcp.mongodb.net:27017/test?replicaSet=mflix-shard-0" --ssl --authenticationDatabase admin  --username analytics --password <password>
